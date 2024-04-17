@@ -16,14 +16,14 @@ public class BallScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // OnTriggerEnter destroy gameobject when ball enters trigger of BallEnd object
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bumper"))
         {
-            // call score function in obstacle script
+            // check for score modifiers depending on what was collided with?
             Debug.Log("Hit Bumper");
         } 
     }
