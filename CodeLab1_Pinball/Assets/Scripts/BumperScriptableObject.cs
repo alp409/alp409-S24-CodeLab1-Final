@@ -9,7 +9,7 @@ using UnityEngine;
     order = 0
     )
 ]
-
+///////// PHASED THIS OUT?? //////////////
 public class BumperScriptableObject : ScriptableObject
 {
     // add more properties here 

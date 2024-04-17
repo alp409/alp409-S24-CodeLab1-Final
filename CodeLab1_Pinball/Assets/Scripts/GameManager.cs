@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     
-    // Start is called before the first frame update
     void Awake()
     {
         if (instance = null)
@@ -18,14 +17,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    } // You're a singleton now, good job Game Manager.
 
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
