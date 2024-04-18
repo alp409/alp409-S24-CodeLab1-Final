@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    } // You're a singleton now, good job Game Manager.
+    } // You're a singleton now, good job Game Manager! Gold star.
 
     void Start()
     {

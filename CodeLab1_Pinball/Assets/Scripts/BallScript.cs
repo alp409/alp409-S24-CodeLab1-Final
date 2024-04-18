@@ -23,7 +23,6 @@ public class BallScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bumper"))
         {
-            // check for score modifiers depending on what was collided with?
             Debug.Log("Hit Bumper");
         } 
     }
