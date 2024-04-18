@@ -25,5 +25,6 @@ public class BallScript : MonoBehaviour
         {
             Debug.Log("Hit Bumper");
         } 
+        
     }
 }

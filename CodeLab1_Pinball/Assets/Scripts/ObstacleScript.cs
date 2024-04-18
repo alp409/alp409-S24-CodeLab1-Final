@@ -16,7 +16,7 @@ public class ObstacleScript : MonoBehaviour
     public ParticleSystem bounceParticle;
     public Color startColor;
     public float scoreMod;
-    public float bounceForce;
+    public float bounceForce; // move to bumper regular??
     
     void Start()
     {
@@ -33,13 +33,12 @@ public class ObstacleScript : MonoBehaviour
         Debug.Log("Hit (obstacle script)");
         Rigidbody ballRB = collision.rigidbody;
         
-        // add explosion force is using the bounce force to push from the point at which 
+        // TODO: move this to bumper script? 
+        // AddExplosionForce is using the bounceForce to push from the point at which 
         // the ball rb and the bumper rb touch, adjust explosion radius as needed
         ballRB.AddExplosionForce(bounceForce, collision.contacts[0].point, 5);
         
         // TODO: fix this
         GameManager.instance.Score++;
     }
-    
-    
 }
