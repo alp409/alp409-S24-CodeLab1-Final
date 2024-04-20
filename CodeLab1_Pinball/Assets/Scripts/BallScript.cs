@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BallScript : MonoBehaviour
 {
-    // private Rigidbody rb;
+    public Rigidbody rb;
     // public float velocity;
     
     void Start()

@@ -50,6 +50,8 @@ MonoBehaviour:
   bounceSound: {fileID: 0}
   bounceParticle: {fileID: 0}
   startColor: {r: 0, g: 0, b: 0, a: 0}
+  scoreMod: 0
+  bounceForce: 500
 --- !u!33 &6701519819437457036
 MeshFilter:
   m_ObjectHideFlags: 0

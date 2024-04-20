@@ -28,12 +28,17 @@ public class ObstacleScript : MonoBehaviour
         // send score info to game manager for high score board
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
+    {
+        ObstacleCollision(collision);
+        // put things that happen in every collision here
+    }
+
+    public virtual void ObstacleCollision(Collision collision)
     {
         Debug.Log("Hit (obstacle script)");
         Rigidbody ballRB = collision.rigidbody;
         
-        // TODO: move this to bumper script? 
         // AddExplosionForce is using the bounceForce to push from the point at which 
         // the ball rb and the bumper rb touch, adjust explosion radius as needed
         ballRB.AddExplosionForce(bounceForce, collision.contacts[0].point, 5);
