@@ -7,6 +7,7 @@ public class BumperSticky : ObstacleScript
 {
     private Rigidbody rb;
     public float freezeTime;
+    public float launceForce;
 
     private bool freezeCooldown = false;
     
@@ -37,6 +38,19 @@ public class BumperSticky : ObstacleScript
         if (rb != null)
         {
             rb.isKinematic = false;
+            freezeCooldown = false;
+
+            ShootBall();
         }
+    }
+
+    void ShootBall()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere;
+        rb.AddForce(randomDirection* launceForce, ForceMode.Impulse);
+
+        freezeCooldown = false;
+
+        //rb.isKinematic = false;
     }
 }
