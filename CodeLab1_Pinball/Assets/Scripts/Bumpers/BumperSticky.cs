@@ -22,7 +22,7 @@ public class BumperSticky : ObstacleScript
         //base.ObstacleCollision(collision);
         Debug.Log("Sticky bumper hit!");
 
-        if (rb != null && freezeCooldown == false)
+        if (rb != null && freezeCooldown == false) 
         {
             // freeze the ball
             rb.isKinematic = true;
@@ -33,19 +33,21 @@ public class BumperSticky : ObstacleScript
         }
     }
 
-    void Unfreeze()
+    void Unfreeze() // TODO: when the ball unfreezes, starts to launch but doesn't finish FIX THIS
     {
         if (rb != null)
         {
             rb.isKinematic = false;
-            freezeCooldown = false;
+            //freezeCooldown = false;
 
-            ShootBall();
+            Invoke("ShootBall", .25f);
         }
     }
 
     void ShootBall()
     {
+        //rb.isKinematic = false;
+        
         Vector3 randomDirection = Random.insideUnitSphere;
         rb.AddForce(randomDirection* launceForce, ForceMode.Impulse);
 
