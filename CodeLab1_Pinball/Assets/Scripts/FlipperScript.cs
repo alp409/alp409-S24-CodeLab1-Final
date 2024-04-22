@@ -18,6 +18,7 @@ public class FlipperScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // TODO: make this feel better
         if (Input.GetKeyDown(KeyCode.A))
         {
             leftRigidbody.AddForce(flipperForce * Vector3.forward);

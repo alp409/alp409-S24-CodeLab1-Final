@@ -298,6 +298,7 @@ MonoBehaviour:
   bounceForce: 0
   freezeTime: 3
   launceForce: 100
+  holdParticle: {fileID: 6627756269829126333, guid: 822eea15e89e21244afe4d5092e5d8e5, type: 3}
 --- !u!1001 &230744869
 PrefabInstance:
   m_ObjectHideFlags: 0

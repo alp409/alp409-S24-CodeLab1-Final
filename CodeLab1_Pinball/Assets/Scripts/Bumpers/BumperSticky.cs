@@ -8,11 +8,13 @@ public class BumperSticky : ObstacleScript
     private Rigidbody rb;
     public float freezeTime;
     public float launceForce;
+    public ParticleSystem holdParticle;  // particle effect specifically for holding the ball
 
     private bool freezeCooldown = false;
     
     void Start()
     {
+        holdParticle.gameObject.SetActive(false);
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         rb = ball.GetComponent<Rigidbody>();
     }
@@ -27,24 +29,28 @@ public class BumperSticky : ObstacleScript
             // freeze the ball
             rb.isKinematic = true;
             freezeCooldown = true;
+
+            // TODO: fix it, particle system not activating
+            holdParticle.gameObject.SetActive(true);
             
             // invoke Unfreeze after (freezeTime) number of seconds
             Invoke("Unfreeze", freezeTime);
         }
     }
 
-    void Unfreeze() // TODO: when the ball unfreezes, starts to launch but doesn't finish FIX THIS
+    void Unfreeze() // releases the ball from isKinematic, invokes Shoot ball after .15 seconds
     {
         if (rb != null)
         {
             rb.isKinematic = false;
-            //freezeCooldown = false;
+            //freezeCooldown = false;  // freezeCooldown must stay FALSE so that the ball doesn't get stuck
 
-            Invoke("ShootBall", .25f);
+            Invoke("ShootBall", .15f);
         }
     }
 
-    void ShootBall()
+    void ShootBall()    // ball is already free from kinematic, ball is shot in random direction
+                        // freezeCooldown reset so the ball will stick again if it hits
     {
         //rb.isKinematic = false;
         
@@ -52,7 +58,5 @@ public class BumperSticky : ObstacleScript
         rb.AddForce(randomDirection* launceForce, ForceMode.Impulse);
 
         freezeCooldown = false;
-
-        //rb.isKinematic = false;
     }
 }

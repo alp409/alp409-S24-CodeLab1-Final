@@ -11,12 +11,11 @@ public class ObstacleScript : MonoBehaviour
     // ...later
     // babies: bumpers, goals
 
-    // TODO: use these 
     public AudioClip bounceSound;
     public ParticleSystem bounceParticle;
     public Color startColor;
     public float scoreMod;
-    public float bounceForce; // move to bumper regular??
+    public float bounceForce; 
     
     void Start()
     {
@@ -31,7 +30,8 @@ public class ObstacleScript : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         ObstacleCollision(collision);
-        // put things that happen in every collision here
+        // TODO: put things that happen in every collision here using variables above
+        
     }
 
     public virtual void ObstacleCollision(Collision collision)
