@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
-
-    //private ObstacleScript obstacleScript;
     
     public int Score
     {

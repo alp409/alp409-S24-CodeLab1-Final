@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BumperSticky : ObstacleScript
 {
-    private Rigidbody rb;
+    private Rigidbody rb;  // TODO: how to grab rigidbody of the ball that collided, not the original ball
     
     public float freezeTime;
     public float launceForce;

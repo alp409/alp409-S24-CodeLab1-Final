@@ -35,7 +35,7 @@ public class ObstacleScript : MonoBehaviour
         
         // build queue of game objects as they are hit
         hitQueue.Enqueue(gameObject); 
-        // Debug.Log(hitQueue);
+        // Debug.Log(hitQueue);  // print to console
         
         // GameManager.instance.Score++;  // replaced this below
         // call IncrementScore in GameManager which applies each bumpers unique modifier
