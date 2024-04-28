@@ -47,8 +47,13 @@ public class ObstacleScript : MonoBehaviour
         // AddExplosionForce is using the bounceForce to push from the point at which 
         // the ball rb and the bumper rb touch, adjust explosion radius as needed
         ballRB.AddExplosionForce(bounceForce, collision.contacts[0].point, 5);
+        
+        if (bounceSound != null)
+        {
+            AudioSource.PlayClipAtPoint(bounceSound, transform.position);
+        }
     }
-
+    
     public virtual void ObstacleCollision(Collision collision)
     {
         Debug.Log("ObstacleCollision - ObstacleScript");

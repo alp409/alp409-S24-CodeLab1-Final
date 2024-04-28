@@ -187,6 +187,10 @@ PrefabInstance:
       propertyPath: bounceForce
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 4924327811031999035, guid: ec5065389a3ffb1448d0211b90dd13c4, type: 3}
+      propertyPath: bounceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
     - target: {fileID: 7087729290488108878, guid: ec5065389a3ffb1448d0211b90dd13c4, type: 3}
       propertyPath: m_Name
       value: Bumper(Round) (3)
@@ -433,12 +437,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a1b5824259a6747a3b2b0b1e3b62a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSound: {fileID: 0}
+  bounceSound: {fileID: 8300000, guid: 6d2b48a1960ca8043bc510ac79ef7a45, type: 3}
   scoreMod: 3
   bounceForce: 0
   freezeTime: 3
   launceForce: 50
   holdParticle: {fileID: 6627756269829126333, guid: 822eea15e89e21244afe4d5092e5d8e5, type: 3}
+  launchSound: {fileID: 8300000, guid: 74e0e79d0f3efe946bdf3a81fff07f27, type: 3}
 --- !u!1 &228672955
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +629,10 @@ PrefabInstance:
       propertyPath: bounceForce
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 4924327811031999035, guid: ec5065389a3ffb1448d0211b90dd13c4, type: 3}
+      propertyPath: bounceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
     - target: {fileID: 7087729290488108878, guid: ec5065389a3ffb1448d0211b90dd13c4, type: 3}
       propertyPath: m_Name
       value: Bumper(Round)
@@ -745,6 +754,7 @@ MonoBehaviour:
   freezeTime: 3
   launceForce: 50
   holdParticle: {fileID: 6627756269829126333, guid: 822eea15e89e21244afe4d5092e5d8e5, type: 3}
+  launchSound: {fileID: 0}
 --- !u!114 &284220390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,10 +767,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371fb24db02362748badb49e66ed724f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSound: {fileID: 0}
+  bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 1
   bounceForce: 0
   ballPrefab: {fileID: 4578787273649962767, guid: 8ee235950e8bc1445a888c8e5bbb49ec, type: 3}
+  multiballSound: {fileID: 8300000, guid: 2685c71c811845f4b8560cc96afe545f, type: 3}
+  multiballMusic: {fileID: 8300000, guid: 9602024ac879f7f4f891df30bbcf8227, type: 3}
 --- !u!1 &320726460
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,7 +891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4d0b1b2fd279444ad762f2800e3cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSound: {fileID: 0}
+  bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 1
   bounceForce: 400
 --- !u!1 &402223572
@@ -1000,7 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4d0b1b2fd279444ad762f2800e3cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSound: {fileID: 0}
+  bounceSound: {fileID: 8300000, guid: 810eeb7b60c83d34fb1307320624ee5a, type: 3}
   scoreMod: 1
   bounceForce: 400
 --- !u!1 &522471595
@@ -1013,6 +1025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 522471596}
   - component: {fileID: 522471597}
+  - component: {fileID: 522471598}
   m_Layer: 0
   m_Name: BallEnd
   m_TagString: BallEnd
@@ -1056,6 +1069,102 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &522471598
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522471595}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &545881079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1120,6 +1229,10 @@ PrefabInstance:
       propertyPath: bounceForce
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 4924327811031999035, guid: ec5065389a3ffb1448d0211b90dd13c4, type: 3}
+      propertyPath: bounceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
     - target: {fileID: 7087729290488108878, guid: ec5065389a3ffb1448d0211b90dd13c4, type: 3}
       propertyPath: m_Name
       value: Bumper(Round) (2)
@@ -1354,7 +1467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4d0b1b2fd279444ad762f2800e3cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSound: {fileID: 0}
+  bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 1
   bounceForce: 200
 --- !u!1 &685965392
@@ -1531,6 +1644,8 @@ MonoBehaviour:
   leftRigidbody: {fileID: 1610461779}
   rightRigidbody: {fileID: 685965394}
   flipperForce: 1000
+  leftFlipperSound: {fileID: 8300000, guid: 6f64d8dccc1e2014c8c27c29db8361f9, type: 3}
+  rightFlipperSound: {fileID: 8300000, guid: 931640820685ccb4cbc4491304ca38cb, type: 3}
 --- !u!4 &685965399
 Transform:
   m_ObjectHideFlags: 0
@@ -1680,7 +1795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbdb203688eed842a125d60b96110c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSound: {fileID: 0}
+  bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 0
   bounceForce: 75
 --- !u!1 &705507993
@@ -1931,7 +2046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4d0b1b2fd279444ad762f2800e3cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSound: {fileID: 0}
+  bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 1
   bounceForce: 400
 --- !u!4 &948569047 stripped
@@ -2250,6 +2365,10 @@ PrefabInstance:
       propertyPath: bounceForce
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 4157746956461554307, guid: adcd3d3a9eb11af4ea549e68360166e3, type: 3}
+      propertyPath: bounceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
     - target: {fileID: 5918890805103411823, guid: adcd3d3a9eb11af4ea549e68360166e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.17
@@ -2869,6 +2988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1119751447}
   highScoreText: {fileID: 989954886}
+  ambiance: {fileID: 8300000, guid: 37819bf2dc4b68448b58b4c2f3e12c5c, type: 3}
 --- !u!4 &1392366214
 Transform:
   m_ObjectHideFlags: 0
@@ -3112,6 +3232,10 @@ PrefabInstance:
       propertyPath: bounceForce
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 4157746956461554307, guid: adcd3d3a9eb11af4ea549e68360166e3, type: 3}
+      propertyPath: bounceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 810eeb7b60c83d34fb1307320624ee5a, type: 3}
     - target: {fileID: 5918890805103411823, guid: adcd3d3a9eb11af4ea549e68360166e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.5125527
@@ -3350,6 +3474,8 @@ MonoBehaviour:
   leftRigidbody: {fileID: 1610461779}
   rightRigidbody: {fileID: 685965394}
   flipperForce: 1000
+  leftFlipperSound: {fileID: 8300000, guid: 6f64d8dccc1e2014c8c27c29db8361f9, type: 3}
+  rightFlipperSound: {fileID: 8300000, guid: 931640820685ccb4cbc4491304ca38cb, type: 3}
 --- !u!4 &1627405928 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5918890805103411823, guid: adcd3d3a9eb11af4ea549e68360166e3, type: 3}
@@ -3578,7 +3704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4d0b1b2fd279444ad762f2800e3cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSound: {fileID: 0}
+  bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 1
   bounceForce: 400
 --- !u!4 &1716265130 stripped
@@ -3916,7 +4042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4d0b1b2fd279444ad762f2800e3cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSound: {fileID: 0}
+  bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 1
   bounceForce: 200
 --- !u!1 &2012416879
@@ -4292,7 +4418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbdb203688eed842a125d60b96110c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSound: {fileID: 0}
+  bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 0
   bounceForce: 75
 --- !u!1001 &2088257916

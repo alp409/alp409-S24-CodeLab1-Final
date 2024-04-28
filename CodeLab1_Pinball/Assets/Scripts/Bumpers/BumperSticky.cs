@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BumperSticky : ObstacleScript
 {
@@ -10,6 +11,7 @@ public class BumperSticky : ObstacleScript
     public float freezeTime;
     public float launceForce;
     public ParticleSystem holdParticle;  // particle effect for holding the ball
+    [FormerlySerializedAs("launceSound")] public AudioClip launchSound;
     
     private bool freezeCooldown = false;
     
@@ -62,5 +64,10 @@ public class BumperSticky : ObstacleScript
         rb.AddForce(randomDirection * launceForce, ForceMode.Impulse);
         
         freezeCooldown = false;
+        
+        if (launchSound != null)
+        {
+            AudioSource.PlayClipAtPoint(launchSound, transform.position);
+        }
     }
 }

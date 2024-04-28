@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
+
+    public AudioClip ambiance;
     
     public int Score
     {
@@ -89,6 +91,11 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+        
+        if (ambiance != null)
+        {
+            AudioSource.PlayClipAtPoint(ambiance, transform.position); // TODO: make this loop?
         }
     } 
 
