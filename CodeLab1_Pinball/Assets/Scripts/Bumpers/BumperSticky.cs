@@ -6,24 +6,27 @@ using UnityEngine;
 public class BumperSticky : ObstacleScript
 {
     private Rigidbody rb;
+    
     public float freezeTime;
     public float launceForce;
-    public ParticleSystem holdParticle;  // particle effect specifically for holding the ball
-
+    public ParticleSystem holdParticle;  // particle effect for holding the ball
+    
     private bool freezeCooldown = false;
     
     void Start()
     {
-        holdParticle.gameObject.SetActive(false);
+        //holdParticle.gameObject.SetActive(false);
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         rb = ball.GetComponent<Rigidbody>();
     }
 
     public override void ObstacleCollision(Collision collision)
     {
+        Debug.Log("ObstacleCollision - BumperSticky");
+        
         //base.ObstacleCollision(collision);
-        Debug.Log("Sticky bumper hit!");
-
+        //var emission = holdParticle.emission;
+        
         if (rb != null && freezeCooldown == false) 
         {
             // freeze the ball
@@ -31,7 +34,9 @@ public class BumperSticky : ObstacleScript
             freezeCooldown = true;
 
             // TODO: fix it, particle system not activating
-            holdParticle.gameObject.SetActive(true);
+            //emission.enabled = true;
+            //holdParticle.Play();
+            //holdParticle.gameObject.SetActive(true);
             
             // invoke Unfreeze after (freezeTime) number of seconds
             Invoke("Unfreeze", freezeTime);
@@ -52,11 +57,10 @@ public class BumperSticky : ObstacleScript
     void ShootBall()    // ball is already free from kinematic, ball is shot in random direction
                         // freezeCooldown reset so the ball will stick again if it hits
     {
-        //rb.isKinematic = false;
+        Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), 0f, 0f);
+        randomDirection.Normalize(); 
+        rb.AddForce(randomDirection * launceForce, ForceMode.Impulse);
         
-        Vector3 randomDirection = Random.insideUnitSphere;
-        rb.AddForce(randomDirection* launceForce, ForceMode.Impulse);
-
         freezeCooldown = false;
     }
 }

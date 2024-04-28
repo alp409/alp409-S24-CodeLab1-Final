@@ -3,7 +3,9 @@ guid: 56a1b5824259a6747a3b2b0b1e3b62a1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bounceSound: {instanceID: 0}
+  - holdParticle: {fileID: 6627756269829126333, guid: 822eea15e89e21244afe4d5092e5d8e5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

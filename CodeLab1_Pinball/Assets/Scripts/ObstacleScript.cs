@@ -12,10 +12,11 @@ public class ObstacleScript : MonoBehaviour
     // babies: bumpers, goals
 
     public AudioClip bounceSound;
-    public ParticleSystem bounceParticle;
-    public Color startColor;
-    public float scoreMod;
+    //public ParticleSystem bounceParticle;
+    public float scoreMod = 1f;
     public float bounceForce; 
+    
+    private Queue<GameObject> hitQueue = new Queue<GameObject>();
     
     void Start()
     {
@@ -32,18 +33,24 @@ public class ObstacleScript : MonoBehaviour
         ObstacleCollision(collision);
         // TODO: put things that happen in every collision here using variables above
         
-    }
-
-    public virtual void ObstacleCollision(Collision collision)
-    {
-        Debug.Log("Hit (obstacle script)");
+        // build queue of game objects as they are hit
+        hitQueue.Enqueue(gameObject); 
+        // Debug.Log(hitQueue);
+        
+        // GameManager.instance.Score++;  // replaced this below
+        // call IncrementScore in GameManager which applies each bumpers unique modifier
+        GameManager.instance.IncrementScore(1, scoreMod);
+        
+        //Debug.Log("Hit (obstacle script)");
         Rigidbody ballRB = collision.rigidbody;
         
         // AddExplosionForce is using the bounceForce to push from the point at which 
         // the ball rb and the bumper rb touch, adjust explosion radius as needed
         ballRB.AddExplosionForce(bounceForce, collision.contacts[0].point, 5);
-        
-        // TODO: fix this
-        GameManager.instance.Score++;
+    }
+
+    public virtual void ObstacleCollision(Collision collision)
+    {
+        Debug.Log("ObstacleCollision - ObstacleScript");
     }
 }

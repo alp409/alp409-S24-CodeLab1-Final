@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BumperRegular : ObstacleScript
 {
+    //public Color addColor;
+    
     public override void ObstacleCollision(Collision collision)
     {
         //base.ObstacleCollision(collision);
-        Debug.Log("Bumper Regular");
+        Debug.Log("ObstacleCollision - BumperRegular");    
     }
 }

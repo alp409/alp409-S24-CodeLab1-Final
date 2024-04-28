@@ -17,13 +17,15 @@ public class BallScript : MonoBehaviour
     void Update()
     {
         // OnTriggerEnter destroy gameobject when ball enters trigger of BallEnd object
+        
+        // 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bumper"))
         {
-            Debug.Log("Hit Bumper");
+            // Debug.Log("Hit Bumper");
         } 
         
     }
