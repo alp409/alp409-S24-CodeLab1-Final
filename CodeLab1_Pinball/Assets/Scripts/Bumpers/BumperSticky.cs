@@ -24,7 +24,7 @@ public class BumperSticky : ObstacleScript
         //holdParticle.gameObject.SetActive(false);
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         rb = ball.GetComponent<Rigidbody>();
-        Debug.Log(rb);
+        //Debug.Log(rb);
     }
 
     public override void ObstacleCollision(Collision collision)
@@ -34,7 +34,7 @@ public class BumperSticky : ObstacleScript
         //var emission = holdParticle.emission;
         Rigidbody currentRd = collision.rigidbody;
         
-        Debug.Log(rb);
+        //Debug.Log(rb);
         foreach (Rigidbody rd in StickyOrder){
             if (rd.gameObject == currentRd.gameObject)
             {
@@ -47,8 +47,8 @@ public class BumperSticky : ObstacleScript
             StickyOrder.Enqueue(currentRd);
         }
 
-        Debug.Log(currentRd);
-        Debug.Log(rb);
+        //Debug.Log(currentRd);
+        //Debug.Log(rb);
         if (currentRd.gameObject != rb.gameObject) 
         {
             

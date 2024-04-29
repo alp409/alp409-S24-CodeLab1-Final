@@ -31,14 +31,18 @@ public class GameManager : MonoBehaviour
                 // if the value is a single digit, add "0" string in front to make it look pretty
                 if (value <= 9)
                 {
+                    scoreText.text = "00" + value.ToString();
+                } 
+                else if(value >= 10 && value <= 99)
+                {
                     scoreText.text = "0" + value.ToString();
                 }
                 else
                 {
                     scoreText.text = value.ToString();
                 }
-            //scoreText.text = value.ToString();
-            // Debug.Log("Score Changed");
+            
+                // Debug.Log("Score Changed");
             if (score > HighScore)
             {
                 HighScore = score;
@@ -67,7 +71,7 @@ public class GameManager : MonoBehaviour
         set
         {
             highScore = value;
-            Debug.Log("New High Score!");
+            //Debug.Log("New High Score!");
             string fileContent = "" + highScore;
 
             if (!Directory.Exists(Application.dataPath + DATA_DIR))
@@ -102,7 +106,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DATA_FULL_HS_FILE_PATH = Application.dataPath + DATA_DIR + DATA_HS_FILE;
-        Debug.Log(HighScore);
+        //Debug.Log(HighScore);
         highScoreText.text = HighScore.ToString(); 
     }
 
@@ -112,7 +116,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             score = 0;
-            scoreText.text = "00";
+            scoreText.text = "000";
         }
     }
 }
