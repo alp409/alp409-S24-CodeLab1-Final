@@ -1,41 +1,62 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class BumperSticky : ObstacleScript
 {
-    private Rigidbody rb;  // TODO: how to grab rigidbody of the ball that collided, not the original ball
-    
+
+    public Rigidbody rb;
     public float freezeTime;
     public float launceForce;
-    public ParticleSystem holdParticle;  // particle effect for holding the ball
+    // public ParticleSystem holdParticle;  // particle effect for holding the ball (not working right now)
     [FormerlySerializedAs("launceSound")] public AudioClip launchSound;
     
-    private bool freezeCooldown = false;
+    // private bool freezeCooldown = false;     // this isn't needed anymore because of the shiny new queue (stickyOrder)
+                                                // that Sienna helped me add.  <3 Thanks Sienna + Code Help Desk
+
+    private Queue<Rigidbody> StickyOrder = new Queue<Rigidbody>();
     
     void Start()
     {
         //holdParticle.gameObject.SetActive(false);
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         rb = ball.GetComponent<Rigidbody>();
+        Debug.Log(rb);
     }
 
     public override void ObstacleCollision(Collision collision)
     {
         Debug.Log("ObstacleCollision - BumperSticky");
         
-        //base.ObstacleCollision(collision);
         //var emission = holdParticle.emission;
+        Rigidbody currentRd = collision.rigidbody;
         
-        if (rb != null && freezeCooldown == false) 
-        {
-            // freeze the ball
-            rb.isKinematic = true;
-            freezeCooldown = true;
+        Debug.Log(rb);
+        foreach (Rigidbody rd in StickyOrder){
+            if (rd.gameObject == currentRd.gameObject)
+            {
+                return;
+            }
 
-            // TODO: fix it, particle system not activating
+        }
+        if (!StickyOrder.Contains(currentRd))
+        {
+            StickyOrder.Enqueue(currentRd);
+        }
+
+        Debug.Log(currentRd);
+        Debug.Log(rb);
+        if (currentRd.gameObject != rb.gameObject) 
+        {
+            
+            // freeze the ball
+            currentRd.isKinematic = true;
+            // freezeCooldown = true;
+
+            // TODO: particle system not activating
             //emission.enabled = true;
             //holdParticle.Play();
             //holdParticle.gameObject.SetActive(true);
@@ -47,23 +68,20 @@ public class BumperSticky : ObstacleScript
 
     void Unfreeze() // releases the ball from isKinematic, invokes Shoot ball after .15 seconds
     {
-        if (rb != null)
-        {
-            rb.isKinematic = false;
-            //freezeCooldown = false;  // freezeCooldown must stay FALSE so that the ball doesn't get stuck
-
-            Invoke("ShootBall", .15f);
-        }
+        Rigidbody currentRd = StickyOrder.Peek();
+        currentRd.isKinematic = false;
+        Debug.Log("unfreeze" + StickyOrder.Count);
+        Invoke("ShootBall", .15f);
     }
 
-    void ShootBall()    // ball is already free from kinematic, ball is shot in random direction
-                        // freezeCooldown reset so the ball will stick again if it hits
+    void ShootBall()    //
     {
         Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), 0f, 0f);
         randomDirection.Normalize(); 
-        rb.AddForce(randomDirection * launceForce, ForceMode.Impulse);
-        
-        freezeCooldown = false;
+        Rigidbody currentRd = StickyOrder.Dequeue();
+        currentRd.AddForce(randomDirection * launceForce, ForceMode.Impulse);
+        Debug.Log("shoot" + StickyOrder.Count);
+        //freezeCooldown = false;
         
         if (launchSound != null)
         {

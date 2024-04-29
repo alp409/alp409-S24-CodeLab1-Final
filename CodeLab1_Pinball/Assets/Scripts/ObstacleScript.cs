@@ -16,10 +16,11 @@ public class ObstacleScript : MonoBehaviour
     public float scoreMod = 1f;
     public float bounceForce; 
     
-    private Queue<GameObject> hitQueue = new Queue<GameObject>();
+    // private Queue<GameObject> hitQueue = new Queue<GameObject>(); // TODO: get rid of this?
     
     void Start()
     {
+        
         
     }
 
@@ -31,23 +32,22 @@ public class ObstacleScript : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         ObstacleCollision(collision);
-        // TODO: put things that happen in every collision here using variables above
         
-        // build queue of game objects as they are hit
-        hitQueue.Enqueue(gameObject); 
+        // build queue of game objects as they are hit // TODO: get rid of this?
+        // hitQueue.Enqueue(gameObject); 
         // Debug.Log(hitQueue);  // print to console
         
-        // GameManager.instance.Score++;  // replaced this below
         // call IncrementScore in GameManager which applies each bumpers unique modifier
         GameManager.instance.IncrementScore(1, scoreMod);
         
-        //Debug.Log("Hit (obstacle script)");
         Rigidbody ballRB = collision.rigidbody;
         
         // AddExplosionForce is using the bounceForce to push from the point at which 
-        // the ball rb and the bumper rb touch, adjust explosion radius as needed
+        // the ballRB and the bumper touch, adjust explosion radius as needed
         ballRB.AddExplosionForce(bounceForce, collision.contacts[0].point, 5);
         
+        // if there is an audio clip in bounceSound, play the clip
+        // (this helped me avoid issues if I forgot or hadn't added a sound clip yet)
         if (bounceSound != null)
         {
             AudioSource.PlayClipAtPoint(bounceSound, transform.position);

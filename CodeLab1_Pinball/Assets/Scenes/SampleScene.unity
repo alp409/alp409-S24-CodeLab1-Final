@@ -440,6 +440,7 @@ MonoBehaviour:
   bounceSound: {fileID: 8300000, guid: 6d2b48a1960ca8043bc510ac79ef7a45, type: 3}
   scoreMod: 3
   bounceForce: 0
+  rb: {fileID: 781653799}
   freezeTime: 3
   launceForce: 50
   holdParticle: {fileID: 6627756269829126333, guid: 822eea15e89e21244afe4d5092e5d8e5, type: 3}
@@ -722,9 +723,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7087729290488108878, guid: ec5065389a3ffb1448d0211b90dd13c4, type: 3}
       insertIndex: 1
       addedObject: {fileID: 284220390}
-    - targetCorrespondingSourceObject: {fileID: 7087729290488108878, guid: ec5065389a3ffb1448d0211b90dd13c4, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 284220386}
   m_SourcePrefab: {fileID: 100100000, guid: ec5065389a3ffb1448d0211b90dd13c4, type: 3}
 --- !u!4 &284220384 stripped
 Transform:
@@ -736,25 +734,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7087729290488108878, guid: ec5065389a3ffb1448d0211b90dd13c4, type: 3}
   m_PrefabInstance: {fileID: 284220383}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &284220386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284220385}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a1b5824259a6747a3b2b0b1e3b62a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceSound: {fileID: 0}
-  scoreMod: 3
-  bounceForce: 0
-  freezeTime: 3
-  launceForce: 50
-  holdParticle: {fileID: 6627756269829126333, guid: 822eea15e89e21244afe4d5092e5d8e5, type: 3}
-  launchSound: {fileID: 0}
 --- !u!114 &284220390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1928,6 +1907,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1405731198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &781653799 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1084266328115577076, guid: 8ee235950e8bc1445a888c8e5bbb49ec, type: 3}
+  m_PrefabInstance: {fileID: 2088257916}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &789556894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,7 +2885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4578787273649962767, guid: 8ee235950e8bc1445a888c8e5bbb49ec, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9059465088578675642, guid: 8ee235950e8bc1445a888c8e5bbb49ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4439,7 +4423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4578787273649962767, guid: 8ee235950e8bc1445a888c8e5bbb49ec, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9059465088578675642, guid: 8ee235950e8bc1445a888c8e5bbb49ec, type: 3}
       propertyPath: m_LocalPosition.x

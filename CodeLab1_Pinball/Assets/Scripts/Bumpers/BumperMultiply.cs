@@ -10,7 +10,7 @@ public class BumperMultiply : ObstacleScript
     public override void ObstacleCollision(Collision collision)
     {
         Debug.Log("ObstacleCollision - BumperMultiply");
-        Instantiate(ballPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(ballPrefab, new Vector3(0, 2f, 10f), Quaternion.identity);
 
         if (multiballSound != null)
         {
