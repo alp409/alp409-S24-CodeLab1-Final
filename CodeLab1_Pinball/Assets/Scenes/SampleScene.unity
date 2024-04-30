@@ -440,6 +440,7 @@ MonoBehaviour:
   bounceSound: {fileID: 8300000, guid: 6d2b48a1960ca8043bc510ac79ef7a45, type: 3}
   scoreMod: 3
   bounceForce: 0
+  defaultBumperType: {fileID: 0}
   rb: {fileID: 781653799}
   freezeTime: 3
   launceForce: 50
@@ -565,6 +566,7 @@ MonoBehaviour:
   bounceSound: {fileID: 0}
   scoreMod: 1
   bounceForce: 400
+  defaultBumperType: {fileID: 0}
 --- !u!1001 &230744869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -748,6 +750,7 @@ MonoBehaviour:
   bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 1
   bounceForce: 0
+  defaultBumperType: {fileID: 0}
   ballPrefab: {fileID: 4578787273649962767, guid: 8ee235950e8bc1445a888c8e5bbb49ec, type: 3}
   multiballSound: {fileID: 8300000, guid: 2685c71c811845f4b8560cc96afe545f, type: 3}
   multiballMusic: {fileID: 8300000, guid: 9602024ac879f7f4f891df30bbcf8227, type: 3}
@@ -872,6 +875,7 @@ MonoBehaviour:
   bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 1
   bounceForce: 400
+  defaultBumperType: {fileID: 0}
 --- !u!1 &402223572
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +997,7 @@ MonoBehaviour:
   bounceSound: {fileID: 8300000, guid: 810eeb7b60c83d34fb1307320624ee5a, type: 3}
   scoreMod: 1
   bounceForce: 400
+  defaultBumperType: {fileID: 0}
 --- !u!1 &522471595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,6 +1453,7 @@ MonoBehaviour:
   bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 1
   bounceForce: 200
+  defaultBumperType: {fileID: 0}
 --- !u!1 &685965392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,6 +1767,7 @@ MonoBehaviour:
   bounceSound: {fileID: 0}
   scoreMod: 0
   bounceForce: 0
+  defaultBumperType: {fileID: 0}
 --- !u!114 &704095177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1776,6 +1783,7 @@ MonoBehaviour:
   bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 0
   bounceForce: 75
+  defaultBumperType: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,6 +2040,7 @@ MonoBehaviour:
   bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 1
   bounceForce: 400
+  defaultBumperType: {fileID: 0}
 --- !u!4 &948569047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1036537240395382514, guid: ec5065389a3ffb1448d0211b90dd13c4, type: 3}
@@ -2522,6 +2531,7 @@ MonoBehaviour:
   bounceSound: {fileID: 0}
   scoreMod: 1
   bounceForce: 400
+  defaultBumperType: {fileID: 0}
 --- !u!1 &1119751445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3690,6 +3700,7 @@ MonoBehaviour:
   bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 1
   bounceForce: 400
+  defaultBumperType: {fileID: 0}
 --- !u!4 &1716265130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1036537240395382514, guid: ec5065389a3ffb1448d0211b90dd13c4, type: 3}
@@ -4028,6 +4039,7 @@ MonoBehaviour:
   bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 1
   bounceForce: 200
+  defaultBumperType: {fileID: 0}
 --- !u!1 &2012416879
 GameObject:
   m_ObjectHideFlags: 0
@@ -4389,6 +4401,7 @@ MonoBehaviour:
   bounceSound: {fileID: 0}
   scoreMod: 0
   bounceForce: 0
+  defaultBumperType: {fileID: 0}
 --- !u!114 &2057119680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4404,6 +4417,7 @@ MonoBehaviour:
   bounceSound: {fileID: 8300000, guid: 705eea51c994714418862180acefa964, type: 3}
   scoreMod: 0
   bounceForce: 75
+  defaultBumperType: {fileID: 0}
 --- !u!1001 &2088257916
 PrefabInstance:
   m_ObjectHideFlags: 0
