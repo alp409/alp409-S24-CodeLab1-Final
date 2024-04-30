@@ -1,5 +1,5 @@
-# FILL IN INFO ABOUT YOUR GAME HERE. 
+# A PINBALL MACHINE WITH QUESTIONABLE PHYSICS
 
-DO NOT LEAVE IT LIKE THIS!!!
+A & D for flippers.  Don't flipper too fast.
 
-Please? Please, give me content. I'm begging you. It's not that hard. Thanks.
+Beat tha high score.
