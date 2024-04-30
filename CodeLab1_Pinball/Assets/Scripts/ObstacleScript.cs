@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,9 +15,11 @@ public class ObstacleScript : MonoBehaviour
     public AudioClip bounceSound;
     //public ParticleSystem bounceParticle;
     public float scoreMod = 1f;
-    public float bounceForce; 
+    public float bounceForce;
+
+    public Bumper defaultBumperType;
+    private ParticleSystem currentParticleSystem;
     
-    // private Queue<GameObject> hitQueue = new Queue<GameObject>(); // TODO: get rid of this?
     
     void Start()
     {
@@ -33,10 +36,6 @@ public class ObstacleScript : MonoBehaviour
     {
         ObstacleCollision(collision);
         
-        // build queue of game objects as they are hit // TODO: get rid of this?
-        // hitQueue.Enqueue(gameObject); 
-        // Debug.Log(hitQueue);  // print to console
-        
         // call IncrementScore in GameManager which applies each bumpers unique modifier
         GameManager.instance.IncrementScore(1, scoreMod);
         
@@ -52,8 +51,14 @@ public class ObstacleScript : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(bounceSound, transform.position);
         }
+
+        if (defaultBumperType != null && defaultBumperType.bumperParticle != null)
+        {
+            currentParticleSystem = Instantiate(defaultBumperType.bumperParticle, collision.contacts[0].point, Quaternion.identity);
+            Destroy(currentParticleSystem.gameObject, defaultBumperType.particleDuration);
+        }
     }
-    
+
     public virtual void ObstacleCollision(Collision collision)
     {
         Debug.Log("ObstacleCollision - ObstacleScript");

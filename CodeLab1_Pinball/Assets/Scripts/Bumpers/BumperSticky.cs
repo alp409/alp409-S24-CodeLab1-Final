@@ -31,39 +31,35 @@ public class BumperSticky : ObstacleScript
     {
         Debug.Log("ObstacleCollision - BumperSticky");
         
-        //var emission = holdParticle.emission;
         Rigidbody currentRd = collision.rigidbody;
         
         //Debug.Log(rb);
-        foreach (Rigidbody rd in StickyOrder){
-            if (rd.gameObject == currentRd.gameObject)
-            {
-                return;
-            }
-
-        }
+        // foreach (Rigidbody rd in StickyOrder){
+        //     if (rd.gameObject == currentRd.gameObject)
+        //     {
+        //         return;
+        //     }
+        //
+        // }
         if (!StickyOrder.Contains(currentRd))
         {
             StickyOrder.Enqueue(currentRd);
+            currentRd.isKinematic = true;
+            Invoke("Unfreeze", freezeTime);
         }
 
         //Debug.Log(currentRd);
         //Debug.Log(rb);
-        if (currentRd.gameObject != rb.gameObject) 
-        {
-            
-            // freeze the ball
-            currentRd.isKinematic = true;
-            // freezeCooldown = true;
-
-            // TODO: particle system not activating
-            //emission.enabled = true;
-            //holdParticle.Play();
-            //holdParticle.gameObject.SetActive(true);
-            
-            // invoke Unfreeze after (freezeTime) number of seconds
-            Invoke("Unfreeze", freezeTime);
-        }
+        // if (currentRd.gameObject != rb.gameObject) 
+        // {
+        //     
+        //     // freeze the ball
+        //     currentRd.isKinematic = true;
+        //     // freezeCooldown = true;
+        //     
+        //     // invoke Unfreeze after (freezeTime) number of seconds
+        //     Invoke("Unfreeze", freezeTime);
+        // }
     }
 
     void Unfreeze() // releases the ball from isKinematic, invokes Shoot ball after .15 seconds

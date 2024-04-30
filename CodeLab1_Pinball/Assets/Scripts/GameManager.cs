@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI highScoreText;
 
     public AudioClip ambiance;
-    
+
     public int Score
     {
         get { return score; }
